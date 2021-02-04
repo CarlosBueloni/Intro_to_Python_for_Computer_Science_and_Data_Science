@@ -19,3 +19,7 @@ from timewithproperties import Time
 wake_up = Time(hour=6, minute=30)
 wake_up
 print(wake_up)
+wake_up.time
+wake_up.time = (10, 20, 30)
+wake_up.time
+print(wake_up)
