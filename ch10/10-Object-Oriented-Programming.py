@@ -23,3 +23,5 @@ wake_up.time
 wake_up.time = (10, 20, 30)
 wake_up.time
 print(wake_up)
+
+10.5 Simulating “Private” Attributes
