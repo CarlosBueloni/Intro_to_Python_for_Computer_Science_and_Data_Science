@@ -24,4 +24,42 @@ wake_up.time = (10, 20, 30)
 wake_up.time
 print(wake_up)
 
-10.5 Simulating “Private” Attributes
+10.6.4 Displaying Card Images with Matplotlib
+from deck import DeckOfCards
+
+deck_of_cards = DeckOfCards()
+
+%matplotlib
+
+from pathlib import Path
+
+path = Path('.').joinpath('card_images')
+
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+figure, axes_list = plt.subplots(nrows=4, ncols=13)
+
+
+for axes in axes_list.ravel():
+    axes.get_xaxis().set_visible(False)
+    axes.get_yaxis().set_visible(False)
+    image_name = deck_of_cards.deal_card().image_name
+    img = mpimg.imread(str(path.joinpath(image_name).resolve()))
+    axes.imshow(img)
+
+
+figure.tight_layout()
+
+figure
+
+deck_of_cards.shuffle()
+
+for axes in axes_list.ravel():
+    axes.get_xaxis().set_visible(False)
+    axes.get_yaxis().set_visible(False)
+    image_name = deck_of_cards.deal_card().image_name
+    img = mpimg.imread(str(path.joinpath(image_name).resolve()))
+    axes.imshow(img)
+
+figure
